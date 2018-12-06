@@ -1,3 +1,2 @@
 # python-challenge
-Boot Camp Work 1
-Testing testing
+Unit 3 | Assignment - Py Me Up, Charlie
