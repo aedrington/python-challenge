@@ -2,7 +2,7 @@ import os
 import csv
 
 #file path
-csvpath = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/PyPoll', 'election_data.csv')
+csvpath = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/python-challenge/PyPoll', 'election_data.csv')
 
 #reader
 with open(csvpath, 'r') as csvfile:
@@ -37,11 +37,28 @@ print("Li:" + str(lr) +"% (" + str(len(li))+")")
 print("O'Tooley:" + str(tr) +"% (" + str(len(tooly))+")")
 print("---------------------------------")
 if kr >= 50:
-    print("Winner: Khan")
+    winner="Winner: Khan"
 elif cr >= 50:
-    print("Winner: Coorey")
+    winner="Winner: Coorey"
 elif lr >= 50:
-    print("Winner: Li")
+    winner="Winner: Li"
 elif tr >= 50:
-    print("Winner: O'Tooley")
+    winner="Winner: O'Tooley"
+print(str(winner))
 print("---------------------------------")
+
+output_file = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/python-challenge/PyPoll', 'election_output.csv')
+
+with open(output_file, "w", newline="") as datafile:
+    writer = csv.writer(datafile)
+
+    writer.writerow(["----------------------------"])
+    writer.writerow(["Total Votes: " + str(total)])
+    writer.writerow(["----------------------------"])
+    writer.writerow([("Khan:" + str(kr) +"% (" + str(len(khan))+")")])
+    writer.writerow([("Correy:" + str(cr) +"% (" + str(len(correy))+")")])
+    writer.writerow([("Li:" + str(lr) +"% (" + str(len(li))+")")])
+    writer.writerow([("O'Tooley:" + str(tr) +"% (" + str(len(tooly))+")")])
+    writer.writerow(["----------------------------"])
+    writer.writerow([(str(winner))])
+    writer.writerow(["----------------------------"])

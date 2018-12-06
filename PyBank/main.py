@@ -2,7 +2,7 @@ import os
 import csv
 
 #file path
-csvpath = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/PyBank', 'budget_data.csv')
+csvpath = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/python-challenge/PyBank', 'budget_data.csv')
 
 #reader
 with open(csvpath, 'r') as csvfile:
@@ -44,3 +44,16 @@ with open(csvpath, 'r') as csvfile:
 
 print("Greatest Increase in Profits: " + str(date_g) + " (" + str(max(greatest)) +")")
 print("Greatest Decrease in Profits: " + str(date_l) + " (" + str(min(lowest)) +")")
+
+output_file = os.path.join('C:/Users/austin.edrington/Desktop/Data_Work/Homework/python-challenge-master/python-challenge/PyBank', 'output.txt')
+
+with open(output_file, "w", newline="") as datafile:
+    writer = csv.writer(datafile)
+
+    writer.writerow(["Financial Analysis"])
+    writer.writerow(["----------------------------"])
+    writer.writerow([(Total Months: {str(months)})])
+    writer.writerow([(Total: ${str(total)})])
+    writer.writerow([(Average Change: ${str(average)})])
+    writer.writerow([("Greatest Increase in Profits: " + str(date_g) + " (" + str(max(greatest)) +")")])
+    writer.writerow([("Greatest Decrease in Profits: " + str(date_l) + " (" + str(min(lowest)) +")")])
